@@ -17,3 +17,4 @@ build
 .project
 
 webapp/docker-compose.prod.yml
+/webapp/.idea/
