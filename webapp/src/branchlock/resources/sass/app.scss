@@ -1,0 +1,29 @@
+
+// Variables
+@import 'variables';
+
+// bootstrap
+@import "bootstrap";
+
+// animate.css
+@import "animate.css/animate.css";
+
+// fontawesome
+@import "../fontawesome/css/all.css";
+
+// highlight.js
+//@import "highlight.js/styles/idea.css";
+@import '../css/hljs-theme.css';
+
+// dropzone.js
+@import "dropzone/dist/dropzone.css";
+@import "dropzone/dist/basic.css";
+
+// Normalize.css
+//@import "normalize.css/normalize.css";
+
+@import 'simplebar/dist/simplebar.min.css';
+
+// Custom style
+@import '../css/app';
+

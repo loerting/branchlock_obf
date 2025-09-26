@@ -1,0 +1,15 @@
+SLF4J: A SLF4J service provider failed to instantiate:
+org.slf4j.spi.SLF4JServiceProvider: ch.qos.logback.classic.spi.LogbackServiceProvider Unable to get public no-arg constructor
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+Exception in thread "main" java.lang.NoSuchMethodError: 'void mjson.Json$ObjectJson.setParent(mjson.Json, mjson.Json)'
+        at mjson.Json$ObjectJson.set(hKESHo+MN8A=:23972)
+        at mjson.Json$Reader.readObject(hKESHo+MN8A=:46881)
+        at mjson.Json$Reader.read(hKESHo+MN8A=:37407)
+        at mjson.Json$Reader.read(hKESHo+MN8A=:24418)
+        at mjson.Json$Reader.read(hKESHo+MN8A=:2288)
+        at mjson.Json.read(hKESHo+MN8A=:25922)
+        at net.branchlock.BranchlockFileRunner.lambda$getConfigProvider$0(WxpVktazkCV1ubxCvNU8l7vqLzMqVUiI:61885)
+        at net.branchlock.Branchlock.<init>(WxpVktazkCWFNVXoY1Mluw==:32838)
+        at net.branchlock.BranchlockFileRunner.main(WxpVktazkCV1ubxCvNU8l7vqLzMqVUiI:12001)

@@ -1,0 +1,117 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "net.branchlock",
+    "module": "branchlock_agp",
+    "version": "2.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.4.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.8.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "obfuscation-2.1.0.jar",
+          "url": "obfuscation-2.1.0.jar",
+          "size": 54786,
+          "sha512": "45a340f8bb225722e3e4de1bd4c2457603e2da843a310396952035f368a2d9519c0d2ea1c51430c40a11aaaac548052bf295b606b2ac48b1d7c01bdef4bbc697",
+          "sha256": "1e6631c002a70a1fac25f63d39a793d83e93af99d31a61df0f223745c9e68eb4",
+          "sha1": "004ea776b6249d7cde769ec24c32b9459e5bdefe",
+          "md5": "7065398ded13c80e8b5e4a285e813f8a"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.android.tools.build",
+          "module": "gradle",
+          "version": {
+            "requires": "8.1.2"
+          }
+        },
+        {
+          "group": "com.android.tools.build",
+          "module": "gradle-api",
+          "version": {
+            "requires": "8.1.2"
+          }
+        },
+        {
+          "group": "com.squareup.okhttp3",
+          "module": "okhttp",
+          "version": {
+            "requires": "4.9.1"
+          }
+        },
+        {
+          "group": "org.sharegov",
+          "module": "mjson",
+          "version": {
+            "requires": "1.4.1"
+          }
+        },
+        {
+          "group": "org.ow2.asm",
+          "module": "asm",
+          "version": {
+            "requires": "9.5"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.8.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "obfuscation-2.1.0.jar",
+          "url": "obfuscation-2.1.0.jar",
+          "size": 54786,
+          "sha512": "45a340f8bb225722e3e4de1bd4c2457603e2da843a310396952035f368a2d9519c0d2ea1c51430c40a11aaaac548052bf295b606b2ac48b1d7c01bdef4bbc697",
+          "sha256": "1e6631c002a70a1fac25f63d39a793d83e93af99d31a61df0f223745c9e68eb4",
+          "sha1": "004ea776b6249d7cde769ec24c32b9459e5bdefe",
+          "md5": "7065398ded13c80e8b5e4a285e813f8a"
+        }
+      ]
+    }
+  ]
+}

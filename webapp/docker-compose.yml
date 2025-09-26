@@ -1,0 +1,122 @@
+# Diese Datei ist für die lokale Entwicklung gedacht.
+# Für produktive Umgebungen bitte die docker-compose.prod.yml verwenden.
+
+services:
+
+  # NGINX
+  nginx:
+    image: bitnamilegacy/nginx:latest
+    container_name: branchlock-nginx
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      #- ./docker/nginx/nginx.conf:/opt/bitnami/nginx/conf/nginx.conf
+      - ./docker/nginx/conf.d:/opt/bitnami/nginx/conf/server_blocks
+      - ./src/branchlock:/var/www/html
+      #- ./data/nginx/logs:/var/log/nginx
+    networks:
+      - branchlock
+
+  # PHP
+  app:
+    build:
+      args:
+        user: branchlock
+        uid: 1000
+      context: ./docker/php
+      dockerfile: Dockerfile
+    container_name: branchlock-php
+    restart: unless-stopped
+    volumes:
+      - ./src/branchlock:/var/www/html
+      - ./docker/php/php.ini:/usr/local/etc/php/conf.d/custom.ini
+    working_dir: /var/www/html
+    networks:
+      - branchlock
+    command: sh -c "composer update && php artisan migrate && php-fpm"
+
+  # SUPERVISOR
+  supervisor:
+    build:
+      context: ./docker/supervisor
+      dockerfile: Dockerfile
+    container_name: branchlock-supervisor
+    restart: unless-stopped
+    volumes:
+      - ./src/branchlock:/var/www/html
+    working_dir: /var/www/html
+    networks:
+      - branchlock
+
+  # MONGO DB
+  mongo:
+    image: mongo:latest
+    container_name: branchlock-mongodb
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${DB_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${DB_PASSWORD}
+      - MONGO_INITDB_DATABASE=${DB_NAME}
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongodump:/mongodump
+      # - ./docker/mongodb/entrypoint/:/docker-entrypoint-initdb.d/custom
+    networks:
+      - branchlock
+
+  mongo-import:
+    image: mongo:latest
+    restart: no
+    volumes:
+      - ./mongodump:/mongodump
+    command: >
+      bash -c "mongoimport -h mongo -u ${DB_USER} -p ${DB_PASSWORD} --authenticationDatabase admin -d ${DB_NAME} -c tasks --file /mongodump/tasks.json --drop &&
+      mongoimport -h mongo -u ${DB_USER} -p ${DB_PASSWORD} --authenticationDatabase admin -d ${DB_NAME} -c changelog --file /mongodump/changelog.json --drop"
+    networks:
+      - branchlock
+
+
+  # REDIS
+  redis:
+    image: "bitnamilegacy/redis:latest"
+    container_name: branchlock-redis
+    restart: "unless-stopped"
+    environment:
+      - REDIS_PASSWORD=password
+      - REDIS_IO_THREADS=4
+      - REDIS_IO_THREADS_DO_READS=yes
+    networks:
+      - branchlock
+
+  npm:
+    image: node:lts-alpine
+    entrypoint: [ "npm" ]
+    container_name: branchlock-npm
+    volumes:
+      - ./src/branchlock:/var/www/html
+    working_dir: /var/www/html
+    networks:
+      - branchlock
+
+  npm-startup:
+    image: node:lts-alpine
+    restart: no
+    entrypoint: [ "sh", "-c", "npm update && npm run build" ]
+    container_name: branchlock-npm-startup
+    volumes:
+      - ./src/branchlock:/var/www/html
+    working_dir: /var/www/html
+    networks:
+      - branchlock
+
+
+networks:
+  branchlock:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+    driver: local

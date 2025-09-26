@@ -1,0 +1,48 @@
+{
+  "input": "testing/jpass.jar",
+  "output": "testing/jpass-obf.jar",
+  "libraries": [
+    "android33_stubs.jar"
+  ],
+  "demo": false,
+  "android": false,
+  "debug_mode": false,
+  "general": {
+    "name_iterator": "rtl",
+    "no_watermark": true,
+    "remove_empty_directories": false,
+    "no_compress": false,
+    "disable_class_limit": true,
+    "load_inner_jars": false
+  },
+  "tasks": {
+    "salting": {
+      "enabled": false
+    },
+    "method-merger": {
+      "enabled": false
+    },
+    "strings": {
+      "enabled": true
+    },
+    "rename": {
+      "enabled": true,
+      "create_packages": false,
+      "exclude": [
+        "kotlin/**",
+        "org/jetbrains/skia/**",
+        "me/lkl/certamen/entity/DoubleEntity"
+      ]
+    },
+    "debug-remover":{
+      "enabled": false,
+      "remove_kotlin": true
+    },
+    "anti-root":{
+      "enabled": false
+    },
+    "anti-debug": {
+      "enabled": false
+    }
+  }
+}

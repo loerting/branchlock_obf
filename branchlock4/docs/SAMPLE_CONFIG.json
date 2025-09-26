@@ -1,0 +1,39 @@
+{
+  "input": "in.jar",
+  "output": "out.jar",
+  "libraries": [
+    "library.jar"
+  ],
+  "user_id": "abcdabcdabcdabcdabcdabcdabcdabcd",
+  "demo": false,
+  "android": false,
+  "debug_mode": false,
+  "tasks": {
+    "references": {
+      "enabled": false,
+      "exclude": [
+        "my.class.**"
+      ],
+        "include": [
+            "my.class.**"
+        ]
+    }
+  },
+  "general": {
+    "name_iterator": "alphanumeric",
+    "remove_empty_directories": true,
+    "no_watermark": false,
+    "no_compress": false,
+    "target_version" : 49,
+    "disable_class_limit": false,
+    "random_seed": "my random seed",
+    "load_inner_jars": true,
+    "include": [
+        "my.class.**"
+    ],
+    "exclude": [
+        "my.class.**"
+    ]
+  }
+}
+

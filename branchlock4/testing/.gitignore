@@ -1,0 +1,2 @@
+# ignore jar files ending with _obfuscated.jar
+*_obfuscated.jar

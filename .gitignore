@@ -1,0 +1,19 @@
+# Ignore Gradle project-specific cache directory
+/.gradle/
+/.idea
+/.settings/
+bin
+jars
+
+# Ignore Gradle build output directory
+build
+
+#Ignore log files
+*.log
+
+.bio.prefs
+.classpath
+.gitattributes
+.project
+
+webapp/docker-compose.prod.yml

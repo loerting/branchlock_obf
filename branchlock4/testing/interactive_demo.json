@@ -1,0 +1,25 @@
+{
+  "output": "demo.txt",
+  "debug_mode": true,
+  "tasks": {
+    "strings": {
+      "enabled": false
+    },
+    "scramble": {
+      "enabled": false
+    },
+    "flow": {
+      "enabled": false
+    },
+    "numbers": {
+      "enabled": true
+    },
+    "salting": {
+      "enabled": true
+    }
+  },
+  "general": {
+    "name_iterator": "chinese"
+  }
+}
+

@@ -1,0 +1,167 @@
+:root, [data-bs-theme="light"] {
+    --hljs-color: #000;
+    --hljs-keyword: #0505ae;
+    --hljs-class: #000;
+    --hljs-comment: #808080;
+    --hljs-meta: #b0b003;
+    --hljs-timestamp: var(--bs-primary);
+    --hljs-numbers: var(--bs-purple);
+}
+
+[data-bs-theme="dark"] {
+    --hljs-color: #d8d4cf;
+    --hljs-keyword: rgb(117, 167, 253);
+    --hljs-class: rgb(232, 230, 227);
+    --hljs-comment: rgb(159, 151, 138);
+    --hljs-meta: #dca710;
+    --hljs-timestamp: var(--hljs-keyword);
+    --hljs-numbers: var(--bs-primary-text-emphasis);
+}
+
+pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em
+}
+
+code.hljs {
+    padding: 3px 5px
+}
+
+.hljs {
+    background: transparent;
+}
+
+/* for block of numbers */
+.hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    text-align: center;
+    color: #a19f9f;
+    border-right: 1.5rem solid transparent;
+    vertical-align: top;
+    padding-right: 50px;
+}
+
+/* for block of code */
+.hljs-ln-code {
+    padding-left: 10px;
+
+}
+
+/*
+
+Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+.hljs {
+    color: var(--hljs-color);
+    /*background: #fff*/
+}
+
+.hljs-subst,
+.hljs-title {
+    font-weight: 400;
+    color: var(--hljs-class);
+}
+
+.hljs-comment,
+.hljs-quote {
+    color: var(--hljs-comment);
+    font-style: italic
+}
+
+.hljs-meta {
+    color: var(--hljs-meta);
+}
+
+.hljs-tag {
+    background: #efefef;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-literal,
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-type,
+.hljs-selector-id,
+.hljs-selector-class {
+    font-weight: bold;
+    color: var(--hljs-keyword);
+}
+
+.hljs-attribute,
+.hljs-number,
+.hljs-regexp,
+.hljs-link {
+    font-weight: bold;
+    color: #0000ff
+}
+
+.hljs-number,
+.hljs-regexp,
+.hljs-link {
+    font-weight: normal
+}
+
+.hljs-string {
+    color: var(--bs-success);
+    font-weight: bold;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-formula {
+    color: #000;
+    background: #d0eded;
+    font-style: italic
+}
+
+.hljs-doctag {
+    text-decoration: underline
+}
+
+.hljs-variable,
+.hljs-template-variable {
+    color: var(--hljs-numbers);
+}
+
+.hljs-number {
+    color: var(--hljs-numbers);
+}
+
+.hljs-addition {
+    background: #baeeba
+}
+
+.hljs-deletion {
+    background: #ffc8bd
+}
+
+.hljs-emphasis {
+    font-style: italic
+}
+
+.hljs-strong {
+    font-weight: bold
+}
+
+.hljs-ln-n {
+    color: var(--hljs-comment)
+}
+
+.hljs-timestamp {
+    color: var(--hljs-timestamp); /* Change this to your desired timestamp color */
+    font-weight: bold;
+}
+
+.hljs-log-line {
+    background: var(--bs-info-bg-subtle);
+    color: var(--bs-info-text-emphasis);
+}

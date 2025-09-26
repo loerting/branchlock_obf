@@ -1,0 +1,50 @@
+
+plugins {
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group 'net.branchlock'
+version '1.1.0'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+subprojects {
+    apply plugin: 'java'
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Branchlock Annotations',
+                'Implementation-Version': version
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = project.group
+            artifactId = 'annotations'
+            version = project.version
+
+            from components.java
+
+            pom {
+                name = 'Branchlock Annotations'
+                description = 'Annotations for branchlock.net'
+                url = 'https://branchlock.net'
+            }
+        }
+    }
+}

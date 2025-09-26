@@ -1,0 +1,8 @@
+{
+  "input": "testing/stacktrace.txt",
+  "output": "testing/stacktrace-out.txt",
+  "key": "test",
+  "general": {
+  }
+}
+

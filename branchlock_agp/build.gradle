@@ -1,0 +1,78 @@
+import org.gradle.api.publish.maven.MavenPublication
+
+buildscript {
+    repositories {
+        mavenLocal()
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.2'
+        classpath 'com.android.tools.build:gradle-api:8.1.2'
+    }
+}
+
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.8.21'
+    id 'java'
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+}
+group = 'net.branchlock'
+version = '2.1.2'
+
+repositories {
+    mavenLocal()
+    jcenter()
+    google()
+    maven { url 'https://maven.google.com' }
+}
+
+
+dependencies {
+    implementation gradleApi()
+    implementation 'com.android.tools.build:gradle:8.1.2'
+    implementation 'com.android.tools.build:gradle-api:8.1.2'
+
+    implementation("com.squareup.okhttp3:okhttp:4.9.1")
+    // mjson
+    implementation 'org.sharegov:mjson:1.4.1'
+    // objectweb ASM
+    implementation 'org.ow2.asm:asm:9.5'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "11"
+
+}
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+
+jar {
+    manifest {
+        attributes('Implementation-Version': version)
+    }
+}
+
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = project.group
+            artifactId = 'obfuscation'
+            version = project.version
+
+            from components.java
+
+            pom {
+                name = 'Branchlock Gradle Plugin'
+                description = 'Obfuscate Java and Android applications using branchlock.net'
+                url = 'https://branchlock.net'
+            }
+        }
+    }
+}
+
+

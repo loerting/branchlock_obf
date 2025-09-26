@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group 'net.branchlock'
+version '4.1.7'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main.java.srcDirs = ['src/main/java']
+    main.resources.srcDirs = ['src/main/resources']
+}
+
+sourceCompatibility = 23
+
+dependencies {
+    implementation 'ch.qos.logback:logback-classic:1.5.6'
+
+    implementation 'org.sharegov:mjson:1.4.1'
+
+    implementation 'commons-io:commons-io:2.16.1'
+
+    implementation 'org.ow2.asm:asm:9.7.1'
+    implementation 'org.ow2.asm:asm-tree:9.7.1'
+    implementation 'org.ow2.asm:asm-analysis:9.7.1'
+    implementation 'org.ow2.asm:asm-commons:9.7.1'
+    implementation 'org.ow2.asm:asm-util:9.7.1'
+
+    implementation 'org.benf:cfr:0.152'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Branchlock',
+                'Implementation-Version': version
+    }
+}
+targetCompatibility = JavaVersion.VERSION_23

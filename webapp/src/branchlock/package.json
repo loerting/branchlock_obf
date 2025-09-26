@@ -1,0 +1,39 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@popperjs/core": "^2.11.5",
+        "axios": "^1.6.1",
+        "cssnano": "^6.0.2",
+        "dotenv": "^16.3.1",
+        "laravel-echo": "^1.15.3",
+        "laravel-vite-plugin": "^0.7.4",
+        "lodash": "^4.17.19",
+        "postcss": "^8.4.32",
+        "pusher-js": "^8.3.0",
+        "resolve-url-loader": "^5.0.0",
+        "sass": "^1.52.3",
+        "sass-loader": "^12.6.0",
+        "vite": "^4.2.1"
+    },
+    "dependencies": {
+        "animate.css": "^4.1.1",
+        "autoprefixer": "^10.4.7",
+        "bootstrap": "^5.2.0",
+        "dropzone": "^6.0.0-beta.2",
+        "highlight.js": "^11.8.0",
+        "highlightjs-line-numbers.js": "^2.8.0",
+        "jquery": "^3.6.1",
+        "laravel-wave": "^0.7.3",
+        "masonry-layout": "^4.2.2",
+        "muicss": "^0.10.3",
+        "normalize.css": "^8.0.1",
+        "postcss-custom-properties": "^12.1.8",
+        "postcss-discard-comments": "^5.1.2",
+        "simplebar": "^6.2.5",
+        "vite-plugin-webfont-dl": "^3.7.6"
+    }
+}
